@@ -1,19 +1,22 @@
 # Microsoft Search Connector Crawler using Azure Function
 
-This timer triggered Azure function shows how Full Crawling of custom data for Microsoft search connector can be implemented at scheduled intervals.
+This timer triggered Azure function shows how crawling of external data for Microsoft Graph connector can be implemented at scheduled intervals. For this sample, the external data being indexed in Microsoft Search is coming from a SharePoint list but the approach can be modified to fetch data from any other custom service as well.
 
 ## Prerequisites
 
 ### Setup the custom connector
 
+- Register an Azure AD App with `ExternalItem.ReadWrite.All` application permission on Microsoft Graph. Also create a Client Secret for the app and make a note of it along with App Id and Tenant Id.
 - Create a connection
-- Register a schema
+- Register a schema for the type of external data (For example, `Appliances` data as shown in below mentioned GitHub sample)
+- Create a vertical
+- Create a result type
 
 > Refer to the sample [https://github.com/microsoftgraph/msgraph-search-connector-sample](https://github.com/microsoftgraph/msgraph-search-connector-sample) for setting up the connector and registering schema
 
 ### Create a SharePoint List 
 
-In this step a SharePoint List will be created from which external data would be indexed to our search connector. Create a SharePoint list with the below columns (in accordance with the schema registered).
+Create a SharePoint list with the below columns (in accordance with the schema registered) that will serve as the external data source.
 
 - `Title` of type `Single line of Text`
 - `Description` of type `Single line of Text`
